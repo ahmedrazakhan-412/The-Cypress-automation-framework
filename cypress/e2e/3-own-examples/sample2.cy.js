@@ -1,4 +1,5 @@
 describe('Amazon', () => {
+  
     beforeEach(() => {
       cy.visit('https://www.amazon.com')
     })
