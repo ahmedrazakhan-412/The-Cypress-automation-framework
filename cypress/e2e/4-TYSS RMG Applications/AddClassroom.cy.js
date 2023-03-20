@@ -11,12 +11,8 @@ describe('My Login application', () => {
     let allclassroom_table
     let classroomwithran
 
-    beforeEach(() => {
-        cy.wait(2000);
-      });
-
     it('should login as admin with valid credentials',  () => {
-        cy.visit('http://testingserver/domain/Student_Management_System/view/login.php')
+        cy.visit('http://testingserver/domain/Student_Management_System/view/login.php');
         cy.title().should('eq', 'Student Management System');
         cy.get('#email').clear();
         cy.get('#email').should('have.value', '');
@@ -41,7 +37,8 @@ describe('My Login application', () => {
     it('should click on classroom and create classroom', () => {
         // Generate a random number between 0 and 100
         // const randomNumber = Math.floor(Math.random() * 100);
-        cy.xpath("//span[normalize-space()='Classroom']").click();
+        cy.title().should('eq', 'Student Management System');
+        cy.get("body > div:nth-child(1) > aside:nth-child(10) > section:nth-child(1) > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1) > span:nth-child(2)").click();
         cy.title().should('eq', 'Student Management System');
         // classroomwithran = "JavaScript"+randomNumber;
         cy.get("#name").type("classroomwithran");

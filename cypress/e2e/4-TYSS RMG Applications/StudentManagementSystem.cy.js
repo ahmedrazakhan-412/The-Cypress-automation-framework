@@ -12,9 +12,8 @@ describe('Student Management System Login application', () => {
   
     it('should login with valid credentials as Admin', () => {
      const email = "admin@gmail.com";
-     cy.get('#email').type(email);
-     cy.wait(2000);
-     //cy.get('#email').should('have.value', 'admin@gmail.com');
+     cy.get('#email').type(email,{force:true});
+     cy.get('#email').should('have.value', 'admin@gmail.com');
      cy.get('#email').clear();
      cy.get('#email').should('have.value', '');
     });
